@@ -12,6 +12,9 @@ class EmployeeList extends Component {
         });
     }
 
+    handleClick = (e) => {
+        
+    }
     
     
     render() {

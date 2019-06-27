@@ -12,3 +12,11 @@ ReactDOM.render(
     </Root>, 
     document.querySelector('#root')
 );
+
+function getPhys(e) {
+    if(e.target.classList.contains('physician')) {
+        window.phys = e.target.innerHTML.split(',')[0];
+    }
+}
+
+window.addEventListener('click', getPhys);
