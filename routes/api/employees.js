@@ -55,10 +55,11 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
     const index = employees.findIndex(employee => employee.id === parseInt(req.params.id));
     if(index >= 0) {
-        employees.splice(index, 1);
+        [removedEmployee] = employees.splice(index, 1);
         res.json({
-            msg: 'employee was deleted',
-            employee: employees
+            msg: `employee: ${removedEmployee.name} was deleted`,
+            employees,
+            removed: removedEmployee
         });
     } else {
         res.status(400).json({ msg: `No employee with an id of ${req.params.id}` });

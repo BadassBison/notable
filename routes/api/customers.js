@@ -55,10 +55,11 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
     const index = customers.findIndex(customer => customer.id === parseInt(req.params.id));
     if(index >= 0) {
-        customers.splice(index, 1);
+        [removedCustomer] = customers.splice(index, 1);
         res.json({
-            msg: 'customer was deleted',
-            customer: customers
+            msg: `customer: ${removedCustomer.name} was deleted`,
+            customers,
+            removed: removedCustomer
         });
     } else {
         res.status(400).json({ msg: `No customer with an id of ${req.params.id}` });
