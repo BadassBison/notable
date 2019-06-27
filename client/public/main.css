@@ -1,0 +1,46 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    padding: 20px;
+}
+
+button {
+    padding: 10px 25px;
+    background: rgb(62, 147, 216);
+    border-radius: 4px;
+    color: white;
+}
+
+.splash {
+    display: flex;
+    justify-content: space-between;
+}
+
+.physBox {
+    padding: 25px;
+    box-sizing: border-box;
+    width: 40%;
+    background: rgb(247, 247, 247);
+}
+
+.physBox h1 {
+    color: rgb(62, 147, 216);
+}
+
+.physBox ul li {
+    margin: 5px;
+}
+
+.physBox ul li:hover {
+    background: rgb(62, 147, 216);
+    color: white;
+}
+
+.patBox {
+    padding: 25px;
+    box-sizing: border-box;
+    width: 60%;
+}

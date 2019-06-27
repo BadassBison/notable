@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
+import Physicians from 'components/employees/employeeBox';
+import Patients from 'components/customers/customerBox';
 
-const Splash = () => {
-    
-    return (
-        <div>
-            <h1>Splash Page</h1>
-        </div>
-    );
+export class Splash extends Component {
+    render() {
+        return (
+            <div className='splash'>
+                <Physicians />
+                <Patients />
+            </div>
+        )
+    }
 }
 
-export default Splash;
+export default Splash

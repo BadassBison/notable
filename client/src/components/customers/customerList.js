@@ -13,7 +13,7 @@ class CustomerList extends Component {
         return (
             <div>
                 <ul>
-                    <h4>Customer List</h4>
+                    <h4>Patients</h4>
                     {this.renderCustomers()}
                 </ul>
             </div>

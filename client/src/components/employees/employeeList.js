@@ -1,19 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import * as actions from 'actions';
 
 class EmployeeList extends Component {
+    
+
     renderEmployees() {
         return this.props.employees.map(employee => {
         
-            return <li key={employee}>{employee}</li>;
+            return <li className="physician" onClick={this.props.fetchPatients} key={employee}>{employee}</li>;
         });
     }
+
+    
     
     render() {
         return (
             <div>
+                <h4>Physicians</h4>
                 <ul>
-                    <h4>Employee List</h4>
                     {this.renderEmployees()}
                 </ul>
             </div>
@@ -25,4 +30,4 @@ function mapSTP(state) {
     return { employees: state.employees }
 }
 
-export default connect(mapSTP)(EmployeeList);
+export default connect(mapSTP, actions)(EmployeeList);

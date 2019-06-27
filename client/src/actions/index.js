@@ -1,4 +1,5 @@
 import axios from 'axios';
+// import moment from 'moment;'
 
 import { 
     CHANGE_AUTH,
@@ -9,14 +10,9 @@ import {
     // DELETE_EMPLOYEE,
     FETCH_ALL_CUSTOMERS,
     FETCH_CUSTOMER,
-    SAVE_CUSTOMER,
+    SAVE_CUSTOMER
     // UPDATE_CUSTOMER,
-    // DELETE_CUSTOMER,
-    FETCH_ALL_COMMENTS,
-    FETCH_COMMENT,
-    SAVE_COMMENT, 
-    // UPDATE_COMMENT,
-    // DELETE_COMMENT,
+    // DELETE_CUSTOMER
 } from 'actions/types';
 
 
@@ -54,6 +50,17 @@ export function saveEmployee(employee) {
 
 
 // Customer actions _____________________________________________
+export function fetchPatients(physId) {
+    // TODO - optimize patient rendering
+    // const patients = axios.get('api/customers');
+    // const physPats = [];
+    // con
+    // patients.forEach(patient => {
+    //     if(patient.physID === physID && 
+    // });
+}
+
+
 export function fetchAllCustomers() {
     const customers = axios.get('api/customers');
     return {
@@ -75,39 +82,3 @@ export function saveCustomer(customer) {
         payload: customer
     };
 };
-
-
-// Comment actions _____________________________________________
-export function fetchAllComments() {
-    const comments = axios.get('api/comments');
-    return {
-        type: FETCH_ALL_COMMENTS,
-        payload: comments
-    };
-};
-export function fetchComment(id) {
-    const comment = axios.get(`api/comments/${id}`);
-    return {
-        type: FETCH_COMMENT,
-        payload: comment
-    };
-};
-export function saveComment(comment) {
-    return {
-        type: SAVE_COMMENT,
-        payload: comment
-    };
-};
-// export function updateComment(comment) {
-//     const comment = axios.get(`api/comments/${id}`);
-//     return {
-//         type: UPDATE_COMMENT,
-//         payload: comment
-//     };
-// };
-// export function deleteComment(commentId) {
-//     const comment = axios.get(`api/comments/${commentId}`);
-//     return {
-//         type: DELETE_COMMENT
-//     };
-// };

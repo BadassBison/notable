@@ -7,6 +7,14 @@ import requireAuth from 'components/auth/requireAuth';
 class EmployeeBox extends Component {
     state = { employee: '' }
 
+    renderButton() {
+        if(this.props.auth) {
+            return <button onClick={() => this.props.changeAuth(false)}>Sign Out</button>
+        } else {
+            return <button onClick={() => this.props.changeAuth(true)}>Sign In</button>
+        }
+    }
+
     handleChange = (e) => {
         this.setState({ employee: e.target.value })
     }
@@ -18,18 +26,16 @@ class EmployeeBox extends Component {
         this.setState({ employee: '' });
     }
 
+    componentDidMount() {
+        this.props.fetchAllEmployees();
+    }
+
     render() {
         return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
-                    <h4>Add a Employee</h4>
-                    <textarea onChange={this.handleChange} value={this.state.employee} />
-                    <div>
-                        <button>Submit Employee</button>
-                    </div>
-                </form>
-                <button className="fetch-employees" onClick={this.props.fetchAllEmployees}>Fetch Employees</button>
+            <div className="physBox">
+                <h1>notable</h1>
                 <EmployeeList />
+                {this.renderButton()}
             </div>
         );
     }

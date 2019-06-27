@@ -18,17 +18,13 @@ class CustomerBox extends Component {
         this.setState({ customer: '' });
     }
 
+    componentDidMount() {
+        this.props.fetchAllCustomers();
+    }
+
     render() {
         return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
-                    <h4>Add a Customer</h4>
-                    <textarea onChange={this.handleChange} value={this.state.customer} />
-                    <div>
-                        <button>Submit Customer</button>
-                    </div>
-                </form>
-                <button className="fetch-customers" onClick={this.props.fetchAllCustomers}>Fetch Customers</button>
+            <div className='patBox'>
                 <CustomerList />
             </div>
         );
