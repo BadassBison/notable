@@ -42,7 +42,6 @@ router.put('/:id', (req, res) => {
             if(customer.id === parseInt(req.params.id)) {
                 customer.name = updatedCustomer.name || customer.name;
                 customer.email = updatedCustomer.email || customer.email;
-                customer.position = updatedCustomer.position || customer.position;
                 res.json({ msg: 'customer was updated', customer });
             }
         });
