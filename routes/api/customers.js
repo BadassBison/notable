@@ -42,7 +42,6 @@ router.put('/:id', (req, res) => {
             if(customer.id === parseInt(req.params.id)) {
                 customer.name = updatedCustomer.name || customer.name;
                 customer.email = updatedCustomer.email || customer.email;
-                customer.position = updatedCustomer.position || customer.position;
                 res.json({ msg: 'customer was updated', customer });
             }
         });
@@ -55,10 +54,11 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
     const index = customers.findIndex(customer => customer.id === parseInt(req.params.id));
     if(index >= 0) {
-        customers.splice(index, 1);
+        [removedCustomer] = customers.splice(index, 1);
         res.json({
-            msg: 'customer was deleted',
-            customer: customers
+            msg: `customer: ${removedCustomer.name} was deleted`,
+            customers,
+            removed: removedCustomer
         });
     } else {
         res.status(400).json({ msg: `No customer with an id of ${req.params.id}` });
