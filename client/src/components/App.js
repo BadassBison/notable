@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route, Switch, Redirect, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import CommentBox from 'components/commentBox';
-import CommentList from 'components/commentList';
+import Splash from 'components/splash';
+import Employees from 'components/employees/employeeBox';
+import Customers from 'components/customers/customerBox';
+import Comments from 'components/comments/commentBox';
 import * as actions from 'actions';
 
 class App extends Component {
@@ -22,7 +24,13 @@ class App extends Component {
                     <Link to='/'>Home</Link>
                 </li>
                 <li>
-                    <Link to='/post'>Post a Comment</Link>
+                    <Link to='/employees'>Employees</Link>
+                </li>
+                <li>
+                    <Link to='/customers'>Customers</Link>
+                </li>
+                <li>
+                    <Link to='/comments'>Comments</Link>
                 </li>
                 <li>
                     {this.renderButton()}
@@ -35,8 +43,13 @@ class App extends Component {
         return (
             <div>
                 {this.renderHeader()}
-                <Route path='/post' component={CommentBox} />
-                <Route path='/' exact component={CommentList} />
+                <Switch>
+                    <Route exact path="/" component={Splash} />
+                    <Route path='/employees' component={Employees} />
+                    <Route path='/customers' component={Customers} />
+                    <Route path='/comments' component={Comments} />
+                    <Redirect to="/" /> 
+                </Switch>  
             </div>
         )
     }

@@ -55,10 +55,10 @@ export function saveEmployee(employee) {
 
 // Customer actions _____________________________________________
 export function fetchAllCustomers() {
-    const customer = axios.get('api/customer');
+    const customers = axios.get('api/customers');
     return {
         type: FETCH_ALL_CUSTOMERS,
-        payload: customer
+        payload: customers
     };
 };
 export function fetchCustomer(id) {

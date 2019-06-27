@@ -1,14 +1,13 @@
 import { 
     FETCH_ALL_COMMENTS,
     FETCH_COMMENT,
-    SAVE_COMMENT 
-    // UPDATE_COMMENT 
+    SAVE_COMMENT  
 } from 'actions/types';
 
 export default function(state = [], action) {
     switch (action.type) {
         case FETCH_ALL_COMMENTS:
-            const comments = action.payload.data.map(comment => comment.name);
+            const comments = action.payload.data.map(comment => comment.subject);
             return [...state, ...comments];
         case FETCH_COMMENT:
             const comment = action.payload;
